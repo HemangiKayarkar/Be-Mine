@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF5EE">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <title>Happy Boyfriend's Day, Amartya ❤️ | 20 Days of Us</title>
+  <meta name="description" content="20 days of late-night calls, laughter, and you — a private digital love letter for Amartya.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Canvas for Dreamy Ambient Shimmer / Dust -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Soft Film Grain Texture Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Reading Progress Bar -->
+  <div class="progress-bar-container" aria-hidden="true">
+    <div class="progress-bar" id="reading-progress"></div>
+  </div>
+
+  <!-- Floating Audio Player -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="heart-pulse">❤️</span>
+      <span class="nav-brand-text">For You</span>
+    </div>
+    <div class="nav-actions">
+      <button id="music-toggle" class="music-pill" aria-label="Toggle background music">
+        <span class="music-bars" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="music-label" id="music-label">♫ Tum Se Hi</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Audio Element -->
+  <audio id="bg-audio" preload="metadata"></audio>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <main id="main-content">
+
+    <!-- 1. LANDING HERO SECTION (100dvh) -->
+    <section id="landing" class="section hero-section">
+      <div class="hero-inner">
+        <div class="stamp-badge reveal-fade">
+          <span class="stamp-icon">💌</span>
+          <span class="stamp-date">Special Edition</span>
+        </div>
+        
+        <p class="hero-small-text handwritten reveal-fade" id="landing-small">To my favourite person, Amartya ❤️</p>
+        <h1 class="hero-title serif reveal-fade" id="landing-title">Happy Boyfriend's Day</h1>
+        <p class="hero-subheading reveal-fade" id="landing-subheading">20 days of you... and I made a little something for you.</p>
+
+        <div class="hero-action reveal-fade">
+          <button id="btn-open-experience" class="romantic-btn primary-btn pulse-glow">
+            <span class="btn-text" id="landing-btn-text">Open this ❤️</span>
+            <span class="btn-sparkle" aria-hidden="true">✨</span>
+          </button>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="scroll-chevron"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PHOTO INTRO SECTION -->
+    <section id="intro" class="section intro-section">
+      <div class="container">
+        <div class="section-badge">Where it begins</div>
+        
+        <div class="intro-photo-card polaroid-frame reveal-card" data-photo-id="intro">
+          <div class="photo-wrapper">
+            <img id="intro-img" src="images/intro.jpg" alt="Our favourite photo together" class="photo-display">
+            <button class="photo-tap-zoom" aria-label="View photo full size">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            </button>
+          </div>
+          <div class="polaroid-caption-wrap">
+            <p class="editorial-caption handwritten" id="intro-caption">
+              Out of all the people in this world,<br>somehow I found you.
+            </p>
+            <div class="caption-date" id="intro-date">You & Me</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OUR STORY TIMELINE -->
+    <section id="story" class="section story-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Timeline</div>
+          <h2 class="section-title serif" id="story-title">Us, in little moments.</h2>
+          <p class="section-subtitle" id="story-subtitle">Every chapter with you is my favourite.</p>
+        </div>
+
+        <div class="story-timeline" id="story-timeline-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MEMORIES SECTION (Horizontal swipeable gallery) -->
+    <section id="memories" class="section memories-section">
+      <div class="container wide-container">
+        <div class="section-header text-center">
+          <div class="section-badge">Snapshots</div>
+          <h2 class="section-title serif" id="memories-title">Some of my favourite versions of us</h2>
+          <p class="section-subtitle" id="memories-subtitle">Swipe through our snapshots ⟶</p>
+        </div>
+
+        <div class="gallery-wrapper">
+          <button class="gallery-arrow arrow-left" id="gallery-prev" aria-label="Previous photo">‹</button>
+          <div class="gallery-track" id="memories-gallery-track">
+            <!-- Dynamically populated from config.js -->
+          </div>
+          <button class="gallery-arrow arrow-right" id="gallery-next" aria-label="Next photo">›</button>
+        </div>
+
+        <div class="gallery-indicators" id="gallery-indicators">
+          <!-- Dots generated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. THINGS I LOVE ABOUT YOU -->
+    <section id="love-reasons" class="section reasons-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-badge">From My Heart</div>
+          <h2 class="section-title serif" id="reasons-title">Little things I love about you</h2>
+          <p class="section-subtitle" id="reasons-subtitle">Tap any card to uncover a little thought</p>
+        </div>
+
+        <div class="reasons-grid" id="reasons-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. A LETTER FOR YOU -->
+    <section id="letter" class="section letter-section">
+      <div class="container">
+        <div class="letter-envelope-wrapper">
+          <div class="wax-seal" aria-hidden="true">
+            <span class="wax-seal-symbol">❤️</span>
+          </div>
+
+          <div class="letter-paper">
+            <div class="letter-header">
+              <span class="letter-pre-title">Personal & Private</span>
+              <h2 class="letter-heading serif" id="letter-heading">Something I want you to know...</h2>
+              <span class="letter-date" id="letter-date">October 3</span>
+            </div>
+
+            <div class="letter-body handwritten" id="letter-body">
+              <!-- Dynamically populated from config.js -->
+            </div>
+
+            <div class="letter-footer">
+              <div class="letter-signoff handwritten" id="letter-signature">
+                Forever yours, ❤️
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OUR LITTLE UNIVERSE -->
+    <section id="universe" class="section universe-section">
+      <div class="container">
+        <div class="universe-card">
+          <div class="universe-stars-backdrop" aria-hidden="true"></div>
+          
+          <div class="section-header text-center">
+            <div class="universe-tag">Our Secret World</div>
+            <h2 class="universe-title serif" id="universe-title">Just you + me.</h2>
+            <p class="universe-subtitle" id="universe-subtitle">A collection of things that belong only to us</p>
+          </div>
+
+          <div class="universe-grid" id="universe-grid">
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SURPRISE SECTION -->
+    <section id="surprise" class="section surprise-section">
+      <div class="container">
+        <div class="surprise-container text-center">
+          <div class="surprise-teaser" id="surprise-teaser">
+            <div class="teaser-icon">🎁</div>
+            <h3 class="serif teaser-heading">There's just one more thing...</h3>
+            <p class="teaser-sub">A tiny secret message kept right here.</p>
+            <button id="btn-surprise-reveal" class="romantic-btn surprise-btn pulse-glow">
+              <span id="surprise-btn-text">One last thing...</span>
+              <span class="btn-heart">❤️</span>
+            </button>
+          </div>
+
+          <div class="surprise-revealed hidden" id="surprise-revealed">
+            <div class="sparkle-burst" aria-hidden="true">✨ 💖 ✨</div>
+            <h3 class="revealed-heading serif" id="surprise-revealed-heading">Before you go...</h3>
+            
+            <div class="surprise-message-box">
+              <p class="surprise-quote handwritten" id="surprise-message">
+                If I had to choose you all over again,<br>
+                I'd still choose you.<br><br>
+                In every version of this story,<br>
+                I hope there's an us. ❤️
+              </p>
+            </div>
+
+            <div class="surprise-photo-wrap polaroid-frame" data-photo-id="surprise">
+              <div class="photo-wrapper">
+                <img id="surprise-img" src="images/surprise.jpg" alt="Surprise moment" class="photo-display">
+              </div>
+              <p class="polaroid-caption handwritten" id="surprise-caption">Always choosing you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FINAL SECTION -->
+    <section id="final" class="section final-section">
+      <div class="container">
+        <div class="final-card polaroid-frame" data-photo-id="final">
+          <div class="photo-wrapper">
+            <img id="final-img" src="images/final.jpg" alt="Final celebration photo" class="photo-display">
+          </div>
+          
+          <div class="final-content text-center">
+            <h2 class="final-heading serif" id="final-heading">Happy Boyfriend's Day ❤️</h2>
+            <p class="final-subheading serif" id="final-subheading">Thank you for being you.</p>
+            
+            <p class="final-signature handwritten" id="final-signoff">
+              — From the person who loves annoying you,<br>loving you, and choosing you. ❤️
+            </p>
+
+            <div class="final-actions">
+              <button id="btn-replay" class="replay-btn">
+                <span class="replay-icon">↺</span>
+                <span id="final-replay-text">Replay our story</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-note handwritten">Made with all my love, just for you ❤️</p>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR FULL SCREEN PHOTO VIEWING -->
+  <div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Photo Lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close photo view">✕</button>
+    <div class="lightbox-content">
+      <div class="lightbox-image-container">
+        <img id="lightbox-img" src="" alt="Enlarged memory photo">
+      </div>
+      <div class="lightbox-info">
+        <p class="lightbox-caption handwritten" id="lightbox-caption"></p>
+        <span class="lightbox-tag" id="lightbox-tag"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
